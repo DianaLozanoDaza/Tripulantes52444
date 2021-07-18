@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Tripulante
+ *  Clase Tripulante
  */
 public class Tripulante {
     /**
