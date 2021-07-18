@@ -108,11 +108,9 @@ public class Tripulante {
         // if (nota1 >= nota2 && nota1 >= nota3) {
         //     return nota1;
         // }
-
         // if (nota2 >= nota3) {
         //     return nota2;
         // }
-
         // return nota3;
 
         // if (nota1 >= nota2 && nota1 >= nota3) {
