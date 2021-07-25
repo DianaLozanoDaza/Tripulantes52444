@@ -1,9 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  *  Clase Tripulante
  */
 public class Tripulante {
+
+    //Constantes: permiten tener valores que no cambian, EN MAYUSCULA
+    public final static double NOTA_MAXIMA = 5.0;
+
+
+
     /**
      * Atributos
      */
@@ -15,9 +23,39 @@ public class Tripulante {
     private float numeroIdentificacion;
     private String email;
 
+    public char[] getNombre;
+
+        //LISTA DE CURSOS
+    //declaracion de lista DE TRIPULANTE A CURSO
+    private ArrayList<Curso> cursos;
+
+
+    //CONSTRUCTOR
+    public Tripulante(String nombre, int id, double nota1, double nota2, double nota3, float numeroIdentificacion, String email){
+        super();
+        this.nombre = nombre;
+        this.id = id;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        this.numeroIdentificacion = numeroIdentificacion;
+        this.email = email;
+        cursos=new ArrayList<>();
+
+    }
+
+
+    public Tripulante() {
+    }
+
+
     /** Getters */
     public String getNombre() {
         return nombre;
+    }
+
+    public ArrayList<Curso> getCursos() {
+        return cursos;
     }
 
     public int getId() {
@@ -73,7 +111,7 @@ public class Tripulante {
         this.numeroIdentificacion = numeroIdentificacion;
     }
 
-
+    //Metodos
     public double getAverage() {
         return (nota1 + nota2 + nota3) / 3;
     }
@@ -140,4 +178,12 @@ public class Tripulante {
         return false;
 
     }
+
+    public String adicionarCursos(Curso c){
+        cursos.add(c);
+        return "Curso adicionado" + c + "para el tripulante" + nombre;
+    }
+
+
+
 }
