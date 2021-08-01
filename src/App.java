@@ -1,18 +1,20 @@
 
 
+
 import model.Curso;
 import model.Tripulante;
+import view.Vista;
 
 public class App {
     public static void main(String[] args) {
 
         Curso programacion1 = new Curso (1234, "Fundamentos de programaciòn", 'M', 7400, "Dev 1");
-        System.out.println(programacion1.getNombre());
+        programacion1.getNombre();
 
         try {
-            System.out.println(programacion1.calcularPromedioCurso());
+            programacion1.calcularPromedioCurso();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
 
         Tripulante t = new Tripulante();
@@ -41,21 +43,25 @@ public class App {
         t5.setNota2(4.5);
         t5.setNota3(4);
 
-        System.out.println(programacion1.agregarTripulante(t));
-        System.out.println(programacion1.agregarTripulante(t2));
-        System.out.println(programacion1.agregarTripulante(t3));
-        System.out.println(programacion1.agregarTripulante(t4));
-        System.out.println(programacion1.agregarTripulante(t5));
+        programacion1.agregarTripulante(t);
+        programacion1.agregarTripulante(t2);
+        programacion1.agregarTripulante(t3);
+        programacion1.agregarTripulante(t4);
+        programacion1.agregarTripulante(t5);
 
-        for (Tripulante desarrollador : programacion1.getTripulantes()){
-            System.out.println(desarrollador.getHighNote()); //Nota mas alta
-            System.out.println(desarrollador.getNombre());
+        /*for (Tripulante desarrollador : programacion1.getTripulantes()){
+            (desarrollador.getHighNote(); //Nota mas alta
+            (desarrollador.getNombre();
         }
 
         try {
-            System.out.println(programacion1.calcularPromedioCurso());
+            (programacion1.calcularPromedioCurso();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
+
+
+        Vista v = new Vista();
+        v.setVisible(true);
     }
 }

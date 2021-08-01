@@ -3,31 +3,34 @@ package model;
 import java.util.ArrayList;
 
 public class Curso {
-    //Constante
-    public final static int MAXIMO_TRIPULANTES = 5;
 
-    //Atributos
+    public static final int MAXIMO_TRIPULANTES = 5;
+
     private int codigo;
     private String nombre;
     private char jornada;
 
     private Formador formador;
 
-    //De curso hacia tripulante: Lista
     private ArrayList<Tripulante> tripulantes;
 
-    //Constructor ctor
-    public Curso(int codigo, String nombre, char jornada, int fCodigo, String fNombre) {
+    public Curso(int pCodigo, String pNombre, char pJornada, int fCodigo, String fNombre) {
         super();
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.jornada = jornada;
+        this.codigo = pCodigo;
+        this.nombre = pNombre;
+        this.jornada = pJornada;
         formador = new Formador(fNombre, fCodigo);
-        tripulantes = new ArrayList<>(); //inicializar para convertirla en objeto
+        tripulantes = new ArrayList<>();
     }
 
-    //Metodos
-
+    public Curso(int pCodigo, String pNombre, char pJornada) {
+        super();
+        this.codigo = pCodigo;
+        this.nombre = pNombre;
+        this.jornada = pJornada;
+        formador = null;
+        tripulantes = new ArrayList<>();
+    }
 
     public ArrayList<Tripulante> getTripulantes() {
         return tripulantes;
@@ -53,29 +56,32 @@ public class Curso {
         this.nombre = nombre;
     }
 
-
-    public String agregarTripulante(Tripulante t){
-        if (tripulantes.size() ==MAXIMO_TRIPULANTES){
-            return "No se puede agregar mas de " + MAXIMO_TRIPULANTES + "tripulantes";
+    public String agregarTripulante(Tripulante t) {
+        if (tripulantes.size() == MAXIMO_TRIPULANTES) {
+            return "No se puede agregar más de " + MAXIMO_TRIPULANTES + " Tripulantes";
         }
         tripulantes.add(t);
-        return "Tripulante agregado al curso" + nombre;
+        return "Tripulante agregado al curso " + nombre;
     }
 
-    //Calcular promedio de los estudiantes
     public double calcularPromedioCurso() throws Exception {
-        if (tripulantes.size()==0){//Lanzar exception
-            throw new Exception("No hay tripulantes registrados en el curso");
+        if (tripulantes.size() == 0) {
+            throw new Exception("No hay tripulantes registados en el curso");
         }
-
         double total = 0.0;
         for (Tripulante tripulante : tripulantes) {
             total += tripulante.getAverage();
         }
-        return total/tripulantes.size();
+        // for (int i = 0; i < tripulantes.size(); i++) {
+        // total += tripulantes.get(i).getAverage();
+        // }
+        return total / tripulantes.size();
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Nombre: " + nombre + ", Codigo: " + codigo;
+    }
 
 }
-
-

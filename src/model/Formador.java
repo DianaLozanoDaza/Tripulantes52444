@@ -1,18 +1,21 @@
 package model;
 
 public class Formador {
-    //Atributos
     private String nombre;
     private int codigo;
 
-    //Constructor ctor
-    public Formador(String nombre, int codigo){
+    public Formador(String nombre, int codigo) {
         super();
         this.codigo = codigo;
         this.nombre = nombre;
     }
 
-    //Metodos get
+    public Formador() {
+        super();
+        this.codigo = 0;
+        this.nombre = "Jon Doe";
+    }
+
     public int getCodigo() {
         return codigo;
     }
@@ -20,5 +23,15 @@ public class Formador {
     public String getNombre() {
         return nombre;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        // return super.toString();
+        return "Nombre: " + nombre + " Codigo: "+ codigo;
+    }
 }
-//git

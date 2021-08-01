@@ -3,14 +3,11 @@ package model;
 import java.util.ArrayList;
 
 /**
- *  Clase Tripulante
+ * Tripulante
  */
 public class Tripulante {
 
-    //Constantes: permiten tener valores que no cambian, EN MAYUSCULA
     public final static double NOTA_MAXIMA = 5.0;
-
-
 
     /**
      * Atributos
@@ -23,39 +20,33 @@ public class Tripulante {
     private float numeroIdentificacion;
     private String email;
 
-    public char[] getNombre;
-
-        //LISTA DE CURSOS
-    //declaracion de lista DE TRIPULANTE A CURSO
     private ArrayList<Curso> cursos;
 
-
-    //CONSTRUCTOR
-    public Tripulante(String nombre, int id, double nota1, double nota2, double nota3, float numeroIdentificacion, String email){
-        super();
-        this.nombre = nombre;
-        this.id = id;
-        this.nota1 = nota1;
-        this.nota2 = nota2;
-        this.nota3 = nota3;
-        this.numeroIdentificacion = numeroIdentificacion;
-        this.email = email;
-        cursos=new ArrayList<>();
-
-    }
-
-
     public Tripulante() {
+        super();
     }
 
+    public Tripulante(String pnombre, int pid, double pnota1, double pnota2, double pnota3, float pnumeroIdentificacion,
+            String pemail) {
+        super();
+        this.nombre = pnombre;
+        this.id = pid;
+        this.nota1 = pnota1;
+        this.nota2 = pnota2;
+        this.nota3 = pnota3;
+        this.numeroIdentificacion = pnumeroIdentificacion;
+        this.email = pemail;
+        cursos = new ArrayList<>();
+    }
 
     /** Getters */
-    public String getNombre() {
-        return nombre;
-    }
 
     public ArrayList<Curso> getCursos() {
         return cursos;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public int getId() {
@@ -81,6 +72,7 @@ public class Tripulante {
     public float getNumeroIdentificacion() {
         return numeroIdentificacion;
     }
+
     /** Setters */
 
     public void setNombre(String nombre) {
@@ -111,7 +103,6 @@ public class Tripulante {
         this.numeroIdentificacion = numeroIdentificacion;
     }
 
-    //Metodos
     public double getAverage() {
         return (nota1 + nota2 + nota3) / 3;
     }
@@ -119,71 +110,63 @@ public class Tripulante {
     public double getHighNote() {
         double respuesta;
 
-        if(nota1 >= nota2){
+        if (nota1 >= nota2) {
             if (nota1 >= nota3) {
                 respuesta = nota1;
-            }else{
+            } else {
                 respuesta = nota3;
             }
-        }else{
+        } else {
             if (nota2 >= nota3) {
                 respuesta = nota2;
-            }else{
+            } else {
                 respuesta = nota3;
             }
         }
         return respuesta;
 
         // if (nota1 >= nota2 && nota1 >= nota3) {
-        //     respuesta = nota1;
+        // respuesta = nota1;
         // } else if(nota2 >= nota3){
-        //     respuesta = nota2;
+        // respuesta = nota2;
         // }else{
-        //     respuesta = nota3;
+        // respuesta = nota3;
         // }
         // return respuesta;
 
         // if (nota1 >= nota2 && nota1 >= nota3) {
-        //     return nota1;
+        // return nota1;
         // }
+
         // if (nota2 >= nota3) {
-        //     return nota2;
+        // return nota2;
         // }
+
         // return nota3;
 
         // if (nota1 >= nota2 && nota1 >= nota3) {
-        //     return nota1;
+        // return nota1;
         // } else if(nota2 >= nota3){
-        //     return nota2;
+        // return nota2;
         // }else{
-        //     return nota3;
+        // return nota3;
         // }
     }
 
-    public double getLowNote(){
-        if (nota1<=nota2 && nota1<=nota3){
+    public double getLowNote() {
+        if (nota1 <= nota2 && nota1 <= nota3) {
             return nota1;
-        } else if (nota2 <= nota3){
+        } else if (nota2 <= nota3) {
             return nota2;
-        }else{
+        } else {
             return nota3;
         }
     }
 
     public boolean checkIfPass() {
-
-        if (getAverage() <=3){
+        if (getAverage() <= 3) {
             return true;
         }
         return false;
-
     }
-
-    public String adicionarCursos(Curso c){
-        cursos.add(c);
-        return "Curso adicionado" + c + "para el tripulante" + nombre;
-    }
-
-
-
 }
